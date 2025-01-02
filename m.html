@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul scientifique pour mathemathique avancé</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <link rel="stylesheet" href="mi.css">
+</head>
+<body>
+    <style>
+        .navbar-gradient {
+                  background: linear-gradient(to right, #8aa214,  #071d9b); 
+              }
+          </style>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
+            <img id="logo" src="aaqq.png" alt="">
+          
+              <div class="container-fluid">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                          
+                          <li class="nav-item">
+                              <a class="nav-link" href="statistique.html">Accueil</a>
+                          </li>
+                          <a class="navbar-brand" href="index.html">Fonctionnalités</a>
+                          <li class="nav-item">
+                              <a class="nav-link" href="contact.html">À propos</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="contact.html">Quaternion+</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+          <div class="containerr">
+              <div class="background-glow glow-1"></div>
+              <div class="background-glow glow-2"></div>
+              
+              <div class="icons">
+                <!-- Beaker icon -->
+                <div class="icon" style="animation-delay: 0s;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 3v3m8-3v3M9 12h6m-6 3h6m2 3H7a2 2 0 0 1-2-2V5h14v11a2 2 0 0 1-2 2Z"/>
+                  </svg>
+                </div>
+                <!-- Calculator icon -->
+                <div class="icon" style="animation-delay: 0.2s;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/>
+                    <line x1="8" y1="6" x2="16" y2="6"/>
+                    <line x1="8" y1="10" x2="16" y2="10"/>
+                    <line x1="8" y1="14" x2="16" y2="14"/>
+                    <line x1="8" y1="18" x2="16" y2="18"/>
+                  </svg>
+                </div>
+                <!-- Atom icon -->
+                <div class="icon" style="animation-delay: 0.4s;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9 9 9 0 0 0-9 9 9 9 0 0 0 9 9z"/>
+                    <path d="M3 12h18"/>
+                  </svg>
+                </div>
+              </div>
+              <script>
+                  // Create floating particles
+                  function createParticles() {
+                    const container = document.querySelector('.container');
+                    for (let i = 0; i < 10; i++) {
+                      const particle = document.createElement('div');
+                      particle.className = 'particle';
+                      particle.style.left = Math.random() * 100 + '%';
+                      particle.style.top = Math.random() * 100 + '%';
+                      particle.style.animationDelay = (Math.random() * 2) + 's';
+                      container.appendChild(particle);
+                    }
+                  }
+              
+                  // Initialize particles on load
+                  window.addEventListener('load', createParticles);
+                </script>
+          
+              <h3 class="title">Calcul scientifique pour Mathématiques</h3>
+              <div class="underline"></div>
+          </div>
+    <h2 id="al">Algebre linéaire: Calcul Matriciel & Vectoriel</h2>
+    <div class="container">
+        <h1 class="text-center">Calcul Matriciel</h1>
+        <p class="text-center">Vérifiez si une matrice de taille 3x3 est inversible et calculez son inverse et sa transposée.</p>
+        <form id="matrixForm">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="a11">(1,1)</label>
+                    <input type="number" class="form-control" id="a11" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="a12">(1,2)</label>
+                    <input type="number" class="form-control" id="a12" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="a13">(1,3)</label>
+                    <input type="number" class="form-control" id="a13" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <label for="a21">(2,1)</label>
+                    <input type="number" class="form-control" id="a21" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="a22">(2,2)</label>
+                    <input type="number" class="form-control" id="a22" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="a23">(2,3)</label>
+                    <input type="number" class="form-control" id="a23" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4">
+                    <label for="a31">(3,1)</label>
+                    <input type="number" class="form-control" id="a31" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="a32">(3,2)</label>
+                    <input type="number" class="form-control" id="a32" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="a33">(3,3)</label>
+                    <input type="number" class="form-control" id="a33" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Calculer</button>
+        </form>
+        
+        <h2 class="mt-4">Résultats :</h2>
+        <ul>
+            <li><strong>Déterminant :</strong> <span id="determinant">-</span></li>
+            <li><strong>Matrice Inverse :</strong> <pre id="inverseMatrix">-</pre></li>
+            <li><strong>Matrice Transposée :</strong> <pre id="transposeMatrix">-</pre></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('matrixForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Récupérer les valeurs de la matrice
+            const a11 = parseFloat(document.getElementById('a11').value);
+            const a12 = parseFloat(document.getElementById('a12').value);
+            const a13 = parseFloat(document.getElementById('a13').value);
+            const a21 = parseFloat(document.getElementById('a21').value);
+            const a22 = parseFloat(document.getElementById('a22').value);
+            const a23 = parseFloat(document.getElementById('a23').value);
+            const a31 = parseFloat(document.getElementById('a31').value);
+            const a32 = parseFloat(document.getElementById('a32').value);
+            const a33 = parseFloat(document.getElementById('a33').value);
+
+            // Calcul du déterminant
+            const determinant = 
+                a11 * (a22 * a33 - a23 * a32) -
+                a12 * (a21 * a33 - a23 * a31) +
+                a13 * (a21 * a32 - a22 * a31);
+
+            document.getElementById('determinant').textContent = determinant.toFixed(3);
+
+            if (determinant === 0) {
+                document.getElementById('inverseMatrix').textContent = "La matrice n'est pas inversible.";
+                document.getElementById('transposeMatrix').textContent = "Impossible de calculer la transposée (car matrice non inversible).";
+            } else {
+                // Calcul des cofacteurs
+                const cofactors = [
+                    [
+                        (a22 * a33 - a23 * a32),
+                        -(a21 * a33 - a23 * a31),
+                        (a21 * a32 - a22 * a31)
+                    ],
+                    [
+                        -(a12 * a33 - a13 * a32),
+                        (a11 * a33 - a13 * a31),
+                        -(a11 * a32 - a12 * a31)
+                    ],
+                    [
+                        (a12 * a23 - a13 * a22),
+                        -(a11 * a23 - a13 * a21),
+                        (a11 * a22 - a12 * a21)
+                    ]
+                ];
+
+                // Transposer et diviser par le déterminant pour obtenir l'inverse
+                const inverse = cofactors[0].map((_, colIndex) =>
+                    cofactors.map(row => row[colIndex] / determinant)
+                );
+
+                // Calcul de la transposée
+                const transpose = [
+                    [a11, a21, a31],
+                    [a12, a22, a32],
+                    [a13, a23, a33]
+                ];
+
+                // Affichage de la matrice inverse
+                let inverseString = "";
+                inverse.forEach(row => {
+                    inverseString += row.map(val => val.toFixed(3)).join("\t") + "\n";
+                });
+                document.getElementById('inverseMatrix').textContent = inverseString;
+
+                // Affichage de la matrice transposée
+                let transposeString = "";
+                transpose.forEach(row => {
+                    transposeString += row.join("\t") + "\n";
+                });
+                document.getElementById('transposeMatrix').textContent = transposeString;
+            }
+        });
+    </script>
+    <div class="container">
+        <h1 class="text-center">Opérations Vectorielles</h1>
+        <p class="text-center">Effectuez le produit scalaire, addition, soustraction et norme de deux vecteurs.</p>
+        <form id="vectorForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="vector1">Vecteur 1 (séparé par des virgules) :</label>
+                    <input type="text" class="form-control" id="vector1" placeholder="Ex : 1,2,3" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="vector2">Vecteur 2 (séparé par des virgules) :</label>
+                    <input type="text" class="form-control" id="vector2" placeholder="Ex : 4,5,6" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Calculer</button>
+        </form>
+
+        <h2 class="mt-4">Résultats :</h2>
+        <ul>
+            <li><strong>Produit Scalaire :</strong> <span id="dotProduct">-</span></li>
+            <li><strong>Addition :</strong> <pre id="vectorSum">-</pre></li>
+            <li><strong>Soustraction :</strong> <pre id="vectorDifference">-</pre></li>
+            <li><strong>Norme du Vecteur 1 :</strong> <span id="norm1">-</span></li>
+            <li><strong>Norme du Vecteur 2 :</strong> <span id="norm2">-</span></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("vectorForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const vec1 = document.getElementById("vector1").value.split(',').map(Number);
+            const vec2 = document.getElementById("vector2").value.split(',').map(Number);
+
+            if (vec1.length !== vec2.length) {
+                alert("Les vecteurs doivent avoir la même dimension.");
+                return;
+            }
+
+            // Calcul du produit scalaire
+            const dotProduct = vec1.reduce((sum, val, idx) => sum + val * vec2[idx], 0);
+
+            // Addition des vecteurs
+            const vectorSum = vec1.map((val, idx) => val + vec2[idx]);
+
+            // Soustraction des vecteurs
+            const vectorDifference = vec1.map((val, idx) => val - vec2[idx]);
+
+            // Norme des vecteurs
+            const norm1 = Math.sqrt(vec1.reduce((sum, val) => sum + val ** 2, 0));
+            const norm2 = Math.sqrt(vec2.reduce((sum, val) => sum + val ** 2, 0));
+
+            // Affichage des résultats
+            document.getElementById("dotProduct").textContent = dotProduct;
+            document.getElementById("vectorSum").textContent = `[${vectorSum.join(', ')}]`;
+            document.getElementById("vectorDifference").textContent = `[${vectorDifference.join(', ')}]`;
+            document.getElementById("norm1").textContent = norm1.toFixed(2);
+            document.getElementById("norm2").textContent = norm2.toFixed(2);
+        });
+    </script>
+    <h2 id="ai">Analyse: Calcul d'integral & Serie </h2>
+    <div class="containera">
+        <h1 class="text-center mt-4">Calcul d'Intégrales</h1>
+        <form id="integralForm">
+            <div class="form-group">
+                <label for="function">Fonction à intégrer :</label>
+                <select class="form-control" id="function">
+                    <option value="sin(x)">sin(x)</option>
+                    <option value="cos(x)">cos(x)</option>
+                    <option value="exp(x)">exp(x)</option>
+                    <option value="ln(x)">ln(x)</option>
+                    <option value="x^2">x^2</option>
+                    <option value="x^3">x^3</option>
+                    <option value="tan(x)">tan(x)</option>
+                    <option value="sec(x)">sec(x)</option>
+                    <option value="cosec(x)">cosec(x)</option>
+                    <option value="arcsin(x)">arcsin(x)</option>
+                    <option value="arccos(x)">arccos(x)</option>
+                    <option value="arctan(x)">arctan(x)</option>
+                    <option value="polynomial">Polynôme x^n</option>
+                </select>
+            </div>
+
+            <div id="polynomialPower" class="form-group" style="display: none;">
+                <label for="power">Choisir la puissance n de x^n :</label>
+                <input type="number" class="form-control" id="power" placeholder="Entrez la puissance (n)">
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <label for="lowerBound">Borne Inférieure :</label>
+                    <input type="number" class="form-control" id="lowerBound" placeholder="Laissez vide pour indéfinie">
+                </div>
+                <div class="col">
+                    <label for="upperBound">Borne Supérieure :</label>
+                    <input type="number" class="form-control" id="upperBound" placeholder="Laissez vide pour indéfinie">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Calculer</button>
+        </form>
+
+        <h2 class="mt-4">Résultat :</h2>
+        <p><strong>Intégrale :</strong> <span id="integralResult">-</span></p>
+    </div>
+
+    <script>
+        // Fonction pour évaluer les fonctions mathématiques
+        function evaluateFunction(func, x, power) {
+            switch (func) {
+                case 'sin(x)': return Math.sin(x);
+                case 'cos(x)': return Math.cos(x);
+                case 'exp(x)': return Math.exp(x);
+                case 'ln(x)': return x > 0 ? Math.log(x) : NaN; // ln(x) est défini pour x > 0
+                case 'x^2': return Math.pow(x, 2);
+                case 'x^3': return Math.pow(x, 3);
+                case 'tan(x)': return Math.tan(x);
+                case 'sec(x)': return 1 / Math.cos(x); // sec(x) = 1 / cos(x)
+                case 'cosec(x)': return 1 / Math.sin(x); // cosec(x) = 1 / sin(x)
+                case 'arcsin(x)': return (x >= -1 && x <= 1) ? Math.asin(x) : NaN; // arcsin(x) défini pour x ∈ [-1, 1]
+                case 'arccos(x)': return (x >= -1 && x <= 1) ? Math.acos(x) : NaN; // arccos(x) défini pour x ∈ [-1, 1]
+                case 'arctan(x)': return Math.atan(x); // arctan(x) défini pour tout x
+                case 'polynomial': return Math.pow(x, power); // x^n pour un power donné
+                default: return NaN;
+            }
+        }
+
+        // Fonction pour calculer l'intégrale avec la méthode des rectangles
+        function calculateIntegral(func, lower, upper, numIntervals, power) {
+            const step = (upper - lower) / numIntervals;
+            let integral = 0;
+
+            // Utilisation de la méthode des rectangles
+            for (let i = 0; i < numIntervals; i++) {
+                let x = lower + i * step;
+                integral += evaluateFunction(func, x, power) * step;
+            }
+
+            return integral;
+        }
+
+        // Afficher le champ de saisie pour la puissance si le polynôme est choisi
+        document.getElementById("function").addEventListener("change", function() {
+            const selectedFunction = this.value;
+            const powerField = document.getElementById("polynomialPower");
+
+            if (selectedFunction === "polynomial") {
+                powerField.style.display = "block"; // Afficher le champ pour entrer la puissance
+            } else {
+                powerField.style.display = "none"; // Masquer le champ si une autre fonction est choisie
+            }
+        });
+
+        // Traitement du formulaire
+        document.getElementById("integralForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Récupérer la fonction choisie et les bornes
+            const func = document.getElementById("function").value;
+            const lower = parseFloat(document.getElementById("lowerBound").value) || 0;
+            const upper = parseFloat(document.getElementById("upperBound").value) || 1;
+            const numIntervals = 1000; // Plus d'intervalles pour plus de précision
+
+            // Récupérer la puissance pour le polynôme
+            const power = (func === "polynomial") ? parseFloat(document.getElementById("power").value) : null;
+
+            // Calculer l'intégrale
+            const result = calculateIntegral(func, lower, upper, numIntervals, power);
+
+            // Afficher le résultat
+            document.getElementById("integralResult").textContent = result.toFixed(4);
+        });
+    </script>
+    <div class="containera">
+    <h1 class="text-center">Calculateur de Séries Mathématiques</h1>
+    <p class="text-center">Calculez différents types de séries mathématiques</p>
+
+   
+        <div class="col-md-8">
+                
+                    <select class="form-select" id="serieType">
+                        <option value="arithmetic">Série Arithmétique</option>
+                        <option value="geometric">Série Géométrique</option>
+                        <option value="riemann">Série de Riemann</option>
+                        <option value="custom">Série Personnalisée</option>
+                    </select>
+               
+                
+                    <form id="serieForm">
+                        <div id="arithmeticInputs">
+                            <div class="mb-3">
+                                <label for="a1">Premier terme (a₁):</label>
+                                <input type="number" class="form-control" id="a1" value="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="d">Raison (d):</label>
+                                <input type="number" class="form-control" id="d" value="1">
+                            </div>
+                        </div>
+
+                        <div id="geometricInputs" style="display: none;">
+                            <div class="mb-3">
+                                <label for="g1">Premier terme (g₁):</label>
+                                <input type="number" class="form-control" id="g1" value="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="r">Raison (r):</label>
+                                <input type="number" class="form-control" id="r" value="2">
+                            </div>
+                        </div>
+
+                        <div id="riemannInputs" style="display: none;">
+                            <div class="mb-3">
+                                <label for="p">Exposant (p):</label>
+                                <input type="number" class="form-control" id="p" value="2" step="0.1">
+                            </div>
+                        </div>
+
+                        <div id="customInputs" style="display: none;">
+                            <div class="mb-3">
+                                <label for="customSerie">Termes (séparés par des virgules):</label>
+                                <input type="text" class="form-control" id="customSerie" placeholder="Ex: 1,2,3,4,5">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="n">Nombre de termes (n):</label>
+                            <input type="number" class="form-control" id="n" value="10" min="1" max="100">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Calculer</button>
+                    </form>
+
+                    <div class="mt-4">
+                        <h3>Résultats:</h3>
+                        <ul class="list-unstyled">
+                            <li><strong>Formule générale:</strong> <span id="formula">-</span></li>
+                            <li><strong>Termes de la série:</strong> <pre id="terms" class="d-inline">-</pre></li>
+                            <li><strong>Somme partielle (Sₙ):</strong> <span id="sum">-</span></li>
+                            <li><strong>Convergence:</strong> <span id="convergence">-</span></li>
+                        </ul>
+                    </div>
+                
+            </div>
+        </div>
+<h2 id="aii">Probabilité et Statistique</h2>
+<div class="containeraa">
+   
+        <h1 class="text-center">Calculateur de Probabilités et Statistiques</h1>
+        
+      
+            
+                <div class="card">
+                    <div class="card-header">
+                        <select class="form-select" id="calculType">
+                            <option value="stats">Statistiques Descriptives</option>
+                            <option value="binomial">Loi Binomiale</option>
+                            <option value="normal">Loi Normale</option>
+                        </select>
+                    </div>
+                    
+                    <div class="card-body">
+                        <!-- Statistiques Descriptives -->
+                        <div id="statsInputs">
+                            <div class="mb-3">
+                                <label>Données (séparées par des virgules):</label>
+                                <input type="text" class="form-control" id="statsData" placeholder="Ex: 1,2,3,4,5">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculateStats()">Calculer</button>
+                            <div class="mt-3">
+                                <canvas id="statsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Loi Binomiale -->
+                        <div id="binomialInputs" style="display: none;">
+                            <div class="mb-3">
+                                <label>Nombre d'essais (n):</label>
+                                <input type="number" class="form-control" id="binomialN" value="10">
+                            </div>
+                            <div class="mb-3">
+                                <label>Probabilité de succès (p):</label>
+                                <input type="number" class="form-control" id="binomialP" value="0.5" step="0.1" min="0" max="1">
+                            </div>
+                            <div class="mb-3">
+                                <label>Nombre de succès (k):</label>
+                                <input type="number" class="form-control" id="binomialK" value="5">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculateBinomial()">Calculer</button>
+                            <div class="mt-3">
+                                <canvas id="binomialChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Loi Normale -->
+                        <div id="normalInputs" style="display: none;">
+                            <div class="mb-3">
+                                <label>Moyenne (μ):</label>
+                                <input type="number" class="form-control" id="normalMean" value="0">
+                            </div>
+                            <div class="mb-3">
+                                <label>Écart-type (σ):</label>
+                                <input type="number" class="form-control" id="normalStd" value="1" min="0">
+                            </div>
+                            <div class="mb-3">
+                                <label>Valeur (x):</label>
+                                <input type="number" class="form-control" id="normalX" value="0">
+                            </div>
+                            <button class="btn btn-primary" onclick="calculateNormal()">Calculer</button>
+                            <div class="mt-3">
+                                <canvas id="normalChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Résultats -->
+                        <div class="mt-4">
+                            <h3>Résultats:</h3>
+                            <div id="results" class="mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <script>
+        // Gestionnaire de changement de type de calcul
+        document.getElementById('calculType').addEventListener('change', function() {
+            // Cacher tous les inputs
+            document.querySelectorAll('[id$="Inputs"]').forEach(el => el.style.display = 'none');
+            // Afficher l'input sélectionné
+            document.getElementById(this.value + 'Inputs').style.display = 'block';
+        });
+
+        // Fonctions statistiques utilitaires
+        function mean(arr) {
+            return arr.reduce((a, b) => a + b) / arr.length;
+        }
+
+        function stdDev(arr) {
+            const m = mean(arr);
+            return Math.sqrt(arr.reduce((a, b) => a + Math.pow(b - m, 2), 0) / arr.length);
+        }
+
+        function factorial(n) {
+            if (n === 0) return 1;
+            return n * factorial(n - 1);
+        }
+
+        function combination(n, k) {
+            return factorial(n) / (factorial(k) * factorial(n - k));
+        }
+
+        // Calcul des statistiques descriptives
+        function calculateStats() {
+            const data = document.getElementById('statsData').value.split(',').map(Number);
+            const m = mean(data);
+            const std = stdDev(data);
+            const min = Math.min(...data);
+            const max = Math.max(...data);
+            const median = data.sort((a, b) => a - b)[Math.floor(data.length / 2)];
+
+            // Afficher les résultats
+            document.getElementById('results').innerHTML = `
+                <ul>
+                    <li>Moyenne: ${m.toFixed(2)}</li>
+                    <li>Écart-type: ${std.toFixed(2)}</li>
+                    <li>Médiane: ${median}</li>
+                    <li>Minimum: ${min}</li>
+                    <li>Maximum: ${max}</li>
+                </ul>
+            `;
+
+            // Créer l'histogramme
+            const ctx = document.getElementById('statsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map((_, i) => i + 1),
+                    datasets: [{
+                        label: 'Distribution des données',
+                        data: data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                    }]
+                }
+            });
+        }
+
+        // Calcul de la loi binomiale
+        function calculateBinomial() {
+            const n = parseInt(document.getElementById('binomialN').value);
+            const p = parseFloat(document.getElementById('binomialP').value);
+            const k = parseInt(document.getElementById('binomialK').value);
+
+            const prob = combination(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k);
+            const mean = n * p;
+            const variance = n * p * (1 - p);
+
+            // Afficher les résultats
+            document.getElementById('results').innerHTML = `
+                <ul>
+                    <li>P(X = ${k}) = ${prob.toFixed(4)}</li>
+                    <li>Espérance: ${mean.toFixed(2)}</li>
+                    <li>Variance: ${variance.toFixed(2)}</li>
+                </ul>
+            `;
+
+            // Créer la distribution
+            const values = Array.from({length: n + 1}, (_, i) => i);
+            const probs = values.map(x => combination(n, x) * Math.pow(p, x) * Math.pow(1 - p, n - x));
+
+            const ctx = document.getElementById('binomialChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: values,
+                    datasets: [{
+                        label: 'Distribution binomiale',
+                        data: probs,
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)'
+                    }]
+                }
+            });
+        }
+
+        // Calcul de la loi normale
+        function calculateNormal() {
+            const mu = parseFloat(document.getElementById('normalMean').value);
+            const sigma = parseFloat(document.getElementById('normalStd').value);
+            const x = parseFloat(document.getElementById('normalX').value);
+
+            // Fonction de densité de probabilité normale
+            function normalPDF(x, mu, sigma) {
+                return (1 / (sigma * Math.sqrt(2 * Math.PI))) * 
+                       Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
+            }
+
+            // Calcul de la probabilité (approximation)
+            const z = (x - mu) / sigma;
+            const prob = normalPDF(x, mu, sigma);
+
+            // Afficher les résultats
+            document.getElementById('results').innerHTML = `
+                <ul>
+                    <li>Densité de probabilité en x = ${x}: ${prob.toFixed(4)}</li>
+                    <li>Score Z: ${z.toFixed(2)}</li>
+                </ul>
+            `;
+
+            // Créer la courbe normale
+            const points = Array.from({length: 100}, (_, i) => mu - 4*sigma + i*(8*sigma/99));
+            const densities = points.map(x => normalPDF(x, mu, sigma));
+
+            const ctx = document.getElementById('normalChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: points.map(x => x.toFixed(1)),
+                    datasets: [{
+                        label: 'Distribution normale',
+                        data: densities,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false
+                    }]
+                }
+            });
+        }
+    </script>
+</div>
+<script>
+    const serieType = document.getElementById("serieType");
+    const inputSections = {
+        arithmetic: document.getElementById("arithmeticInputs"),
+        geometric: document.getElementById("geometricInputs"),
+        riemann: document.getElementById("riemannInputs"),
+        custom: document.getElementById("customInputs")
+    };
+
+    serieType.addEventListener("change", function() {
+        Object.values(inputSections).forEach(section => section.style.display = "none");
+        inputSections[this.value].style.display = "block";
+    });
+
+    document.getElementById("serieForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const type = serieType.value;
+        const n = parseInt(document.getElementById("n").value);
+        let terms = [];
+        let sum = 0;
+        let formula = "";
+        let convergence = "";
+
+        switch(type) {
+            case "arithmetic":
+                const a1 = parseFloat(document.getElementById("a1").value);
+                const d = parseFloat(document.getElementById("d").value);
+                formula = `aₙ = ${a1} + (n-1)×${d}`;
+                terms = Array.from({length: n}, (_, i) => a1 + i * d);
+                sum = (n * (2 * a1 + (n - 1) * d)) / 2;
+                convergence = "Divergente";
+                break;
+
+            case "geometric":
+                const g1 = parseFloat(document.getElementById("g1").value);
+                const r = parseFloat(document.getElementById("r").value);
+                formula = `gₙ = ${g1} × ${r}^(n-1)`;
+                terms = Array.from({length: n}, (_, i) => g1 * Math.pow(r, i));
+                sum = g1 * (1 - Math.pow(r, n)) / (1 - r);
+                convergence = Math.abs(r) < 1 ? "Convergente" : "Divergente";
+                break;
+
+            case "riemann":
+                const p = parseFloat(document.getElementById("p").value);
+                formula = `rₙ = 1/n^${p}`;
+                terms = Array.from({length: n}, (_, i) => 1 / Math.pow(i + 1, p));
+                sum = terms.reduce((a, b) => a + b, 0);
+                convergence = p > 1 ? "Convergente" : "Divergente";
+                break;
+
+            case "custom":
+                const customInput = document.getElementById("customSerie").value;
+                terms = customInput.split(',').map(Number);
+                sum = terms.reduce((a, b) => a + b, 0);
+                formula = "Série personnalisée";
+                convergence = "Dépend des termes";
+                break;
+        }
+
+        document.getElementById("formula").textContent = formula;
+        document.getElementById("terms").textContent = `[${terms.map(t => t.toFixed(4)).join(', ')}]`;
+        document.getElementById("sum").textContent = sum.toFixed(4);
+        document.getElementById("convergence").textContent = convergence;
+    });
+</script>
+</body>
+</html>
